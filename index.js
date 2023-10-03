@@ -3,7 +3,7 @@
 const { Shape, Triangle, Circle, Square } = require('./lib/shapes.js')
 const inquirer = require('inquirer');
 const fs = require('fs');
-
+//inquirer prompts for shape color, shape type, text color, and character amount
 const questions = [
     {
         type: 'input',
@@ -36,7 +36,7 @@ inquirer.prompt(questions).then((answers) => {
     let svgElement = '';
 
     shapeObj.setColor(shapeColor)
-
+//renders shape characteristics depending on the selected option
     switch(shape) {
         case 'Triangle':
             const triangle = new Triangle()
@@ -61,7 +61,7 @@ inquirer.prompt(questions).then((answers) => {
     } else if (shape === 'Square') {
         y = 145;
     }
-
+//dynamically generated svg code logic for view in live server
     const finalSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
                      ${svgElement}
                      <text x="${x}" y="${y}" fill="${textColor}" font-size="50" text-anchor="middle">${text}</text>
